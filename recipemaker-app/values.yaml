@@ -1,0 +1,12 @@
+replicaCount: 1
+
+image:
+  repository: asia-south1-docker.pkg.dev/elevated-dynamo-2024/recipemaker/latest:latest
+  pullPolicy: Always
+
+service:
+  type: NodePort
+  port: 3000
+
+
+  

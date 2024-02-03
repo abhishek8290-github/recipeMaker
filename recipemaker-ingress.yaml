@@ -1,0 +1,38 @@
+# apiVersion: networking.k8s.io/v1
+# kind: Ingress
+# metadata:
+#   name: recipemaker-ingress
+# spec:
+#   defaultBackend:
+#     service:
+#       name: recipemaker-app
+#       port:
+#         number: 3000
+
+
+
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: recipemaker-ingress
+  annotations:
+    kubernetes.io/ingress.class: "gce"
+    networking.gke.io/managed-certificates: "backendproject"
+    kubernetes.io/ingress.global-static-ip-name: "34.69.196.76"
+spec:
+  defaultBackend:
+    service:
+      name: recipemaker-app
+      port:
+        number: 3000
+  # rules:
+  # - host: "mywebsite.com"
+  #   http:
+  #     paths:
+  #     - pathType: Prefix
+  #       path: "/"
+  #       backend:
+  #         service:
+  #           name: my-service
+  #           port:
+  #             number: 80

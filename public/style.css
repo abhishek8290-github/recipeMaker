@@ -1,0 +1,191 @@
+body {
+    background-size: 100% 400%;
+    background-image: url('bcg1.jpg')
+}
+
+
+#header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+}
+
+#logo {
+    order: -1; /* Move the logo to the left */
+    color: black;
+}
+
+#recipeInput{
+    width: 50%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    color: black;
+}
+
+#label-recipInput{
+    color: black;
+}
+
+#responseContainer{
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    color: black;
+}
+.background-right {
+    background-position: right;
+    margin-left: 250px;
+}
+
+#loginRegisterButton {
+    margin-right: 10px;
+}
+
+#addToFavoritesButton {
+    margin-right: 20px;
+}
+
+#loader {
+    display: none;
+    text-align: center;
+}
+
+#loader img {
+    margin: 20px;
+}
+
+
+.nav-link {
+    margin-right: 10px;
+}
+
+.nav-link {
+    margin-left: auto; /* Align navigation links to the right */
+}
+
+
+
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+
+/* Your existing styles */
+
+#header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+}
+
+#logo {
+    order: -1; /* Move the logo to the left */
+}
+
+#loginRegisterButton,
+#addToFavoritesButton,
+.nav-link {
+    margin-right: 10px;
+}
+
+.nav-link {
+    margin-left: auto; /* Align navigation links to the right */
+}
+
+#loader {
+    display: none;
+    text-align: center;
+}
+
+#loader img {
+    margin: 20px;
+}
+
+/* Modal Styles */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* Responsive Styles */
+@media screen and (max-width: 768px) {
+    #header {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    #logo {
+        order: 0; /* Reset order for logo in mobile view */
+        margin-bottom: 10px;
+        color: black;
+    }
+
+    .nav-link {
+        margin-left: 0;
+        margin-top: 10px; /* Add space between nav-links in mobile view */
+    }
+}

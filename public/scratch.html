@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recipe Maker</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+
+
+body {
+            background-image: url('main_bcg.jpg');
+            
+            background-size: 100% 400%;
+            background-repeat: no-repeat;
+        }
+
+    
+
+ 
+    </style>
+</head>
+<body>
+
+    <div id="header">
+        <h1 id="logo">Recipe Maker</h1>
+        <div>
+            <!-- Your existing buttons -->
+            <button id="loginRegisterButton" onclick="openLoginRegisterModal()">Login/Register</button>
+            <button id="addToFavoritesButton" onclick="addToFavorites()">Add to Favorites</button>
+            <a href="favorites.html" class="nav-link">Favorites</a>
+            <a href="recent-searches.html" class="nav-link">Recent Searches</a>
+        </div>
+    </div>
+
+    <label id = "label-recipeInput" for="recipeInput">Enter a Recipe Prompt:</label>
+    <input type="text" id="recipeInput" placeholder="e.g., chicken pie" />
+
+    <button onclick="makeRecipe()">Submit</button>
+
+    <!-- Loader GIF -->
+    <div id="loader">
+        <img src="loader.gif" alt="Loading..." />
+        <p id="loadingMessage"></p>
+    </div>
+
+    <div id="responseContainer"></div>
+
+        <!-- Login/Register Modal -->
+        <div id="loginRegisterModal" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeLoginRegisterModal()">&times;</span>
+                <!-- Your login/register form goes here -->
+                <h2>Login/Register</h2>
+                <form id="loginForm">
+                    <!-- Your login form fields go here -->
+                    <label for="username">Username:</label>
+                    <input type="text" id="username" name="username" required>
+                    <label for="password">Password:</label>
+                    <input type="password" id="password" name="password" required>
+                    <button type="submit">Login</button>
+                </form>
+                <p>Don't have an account? <a href="#" onclick="showRegisterForm()">Register</a></p>
+    
+                <!-- Your registration form goes here -->
+                <form id="registerForm" style="display: none;">
+                    <label for="newUsername">New Username:</label>
+                    <input type="text" id="newUsername" name="newUsername" required>
+                    <label for="newPassword">New Password:</label>
+                    <input type="password" id="newPassword" name="newPassword" required>
+                    <button type="submit">Register</button>
+                </form>
+            </div>
+        </div>
+    
+
+    <script src="script.js"></script>
+</body>
+</html>
