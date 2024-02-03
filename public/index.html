@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests"> -->
+    <title>Recipe Maker</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* body {
+            background-size: 100% 400%;
+            background-image: url('bcg1.jpg')
+        } */
+        #responseContainer {
+            display: none;
+            display: flex;
+
+        }
+    </style>
+</head>
+<script src="script.js"></script>
+<body onload="initializeHomePage()">
+
+    <div id="header">
+        <h1 id="logo">Recipe Maker</h1>
+        <div>
+            <!-- Your existing buttons -->
+            <!-- <button id="loginRegisterButton" onclick="openLoginRegisterModal()">Login/Register</button> -->
+
+            <a href="register.html" id = "loginButton" class="nav-link">Register</a>
+            <a href="login.html" id = "registerButton" class="nav-link">Login</a>
+            <a href="index.html" id = "signoutButton" , onclick="logout()" class="nav-link">Signout</a>
+
+            <button id="addToFavoritesButton" onclick="addToFavorites()">Add to Favorites</button>
+            <a href="favorites.html" class="nav-link">Favorites</a>
+            <a href="recent-searches.html" class="nav-link">Recent Searches</a>
+        </div>
+    </div>
+
+    <label id="label-recipeInput" for="recipeInput">Enter a Recipe Prompt:</label>
+    <input type="text" id="recipeInput" placeholder="e.g., chicken, Pie " />
+
+    <button onclick="makeRecipe()">Submit</button>
+
+    <!-- Loader GIF -->
+    <div id="loader">
+        <img src="loader.gif" alt="Loading..." />
+        <p id="loadingMessage"></p>
+    </div>
+
+    <div id="responseContainer">
+        <div id = "response-values"></div>
+        <div id = "response-image"></div>
+    </div>
+
+    <!-- Login/Register Modal -->
+    <div id="loginRegisterModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeLoginRegisterModal()">&times;</span>
+            <!-- Your login/register form goes here -->
+            <h2>Login/Register</h2>
+            <form id="loginForm">
+                <!-- Your login form fields go here -->
+                <label for="username">Username:</label>
+                <input type="text" id="username" name="username" required>
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" required>
+                <button type="submit">Login</button>
+            </form>
+            <p>Don't have an account? <button onclick="showRegisterForm()">Register</button></p>
+
+            <!-- Your registration form goes here -->
+            <form id="registerForm" style="display: none;">
+                <label for="newUsername">New Username:</label>
+                <input type="text" id="newUsername" name="newUsername" required>
+                <label for="newPassword">New Password:</label>
+                <input type="password" id="newPassword" name="newPassword" required>
+                <button type="submit" onclick="registerUser()">Register</button>
+            </form>
+        </div>
+    </div>
+
+
+    
+</body>
+
+</html>
