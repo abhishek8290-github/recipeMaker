@@ -1,4 +1,4 @@
-# Express Application
+# AI Recipe Maker
 
 This is a simple Express application.
 
