@@ -44,6 +44,10 @@ To run the application on docker:
 ```bash
 OPENAI_API_KEY=<openapi_key>
 ```
+3. add your mongo atlas uri in .env file
+```bash
+ATLAS_URI=<uri>
+```
 
 1. Build the Docker image:
     ```bash
