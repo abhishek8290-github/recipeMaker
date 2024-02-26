@@ -1,13 +1,14 @@
 const app = require('./app');
 
 const { get_mongo_client } = require('./db/conn');
+const logger = require('./middleware/logger');
 
 const db = get_mongo_client()
 
 const PORT = process.env.PORT || 3000;
 
 const server = app.listen(PORT, () => {
-    console.log(`Listening to port ${PORT}`);
+    logger.log(`Listening to port ${PORT}`);
   });
 
 
@@ -22,7 +23,7 @@ const exitHandler = () => {
   };
   
 const unexpectedErrorHandler = (error) => {
-  console.log(error)
+  logger.log(error)
   // exitHandler();
   };
   

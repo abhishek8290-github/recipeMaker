@@ -46,7 +46,7 @@ const upload_to_bucket = async (file_buffer , file_type) => {
 
   const [signedUrl] = await file.getSignedUrl({
     action: 'read',
-    expires: Date.now() + 24 * 60 * 60 * 1000, 
+    expires: Date.now() + 15*24 * 60 * 60 * 1000, 
   });
   
   return {destination ,signedUrl} 

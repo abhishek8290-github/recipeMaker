@@ -1,5 +1,6 @@
 // const urlService = 'http://localhost:3000'
 const urlService = 'http://34.160.110.0'
+// const urlService = 'https://7cac-2401-4900-1f34-2442-f81d-5f17-8b0d-bdc6.ngrok-free.app'
 
 
 const waitingMessages = ["Whipping up some culinary magic! This might take a moment.",

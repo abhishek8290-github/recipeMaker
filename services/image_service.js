@@ -2,7 +2,7 @@ const axios = require('axios');
 const sharp = require('sharp');
 const fs = require('fs');
 const  mime = require('mime-types');
-
+const logger = require('../middleware/logger');
 
 
 const get_image_data = async ( imageUrl ) => {
@@ -20,23 +20,17 @@ const get_image_data = async ( imageUrl ) => {
         }
         
     } catch (error) {
-        console.error('Error:', error.message);
+        logger.log('Error in get_image_data : '+ error.message, 'error');
     }
 }
 
 
 const shorten_image = async ( buffer  ) => {
-    try {
-        
-        // const {buffer, fileExtension} = await get_image_data(imageUrl);
-        
+    try {        
         const resizedBuffer = await sharp(buffer).resize(112, 112).toBuffer();
         return resizedBuffer
-        // fs.writeFileSync(outputImagePath, resizedBuffer);
-        // return 
-        
     } catch (error) {
-        console.error('Error:', error.message);
+        logger.log('Error in shorten_image'+error.message, 'error');
     }
 }
 

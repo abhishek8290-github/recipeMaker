@@ -76,7 +76,7 @@ const getRecipe = handleAsync(async (req, res) => {
 const addToFavorites = handleAsync(async (req, res) => {
 
     const [user, recipe] = await Promise.all([User.findById(req.user_id), Recipe.findById(req.body.recipe_id)]);
-    console.log(user.favorites)
+    logger.log(user.favorites)
     if (!recipe) throw new Error('Recipe not found');
     if (!(req.body.recipe_id in user.favorites)) {
         user.favorites.push(req.body.recipe_id);

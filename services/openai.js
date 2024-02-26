@@ -4,7 +4,7 @@ require('dotenv').config();
 
 const openai = new OpenAI({apiKey : process.env.OPENAI_API_KEY  });
 const recipe_schema = require('./recipe_schema.js').recipe_schema
-const RECIPE_PROBABILITY_THRESHOLD = 25 // 25% probability of the dish being cooked and eaten by civilized people
+const RECIPE_PROBABILITY_THRESHOLD = 10 // 25% probability of the dish being cooked and eaten by civilized people
 
 
 const makeRecipe = async(query) => {
@@ -75,7 +75,7 @@ async function generateOpenAIResponse(prompt) {
     });
       return response.data.choices[0].text.trim();
   } catch (error) {
-      console.error('Error generating response with OpenAI:', error);
+    logger.log('Error generating response with OpenAI:'+ error, 'error');
       return 'An error occurred while generating the response.';
   }
 }
@@ -108,7 +108,7 @@ const fetch_image = async(query) => {
     return imgurl
 
   } catch (error) {
-    console.error('Error calling OpenAI API:', error.message);
+    logger.log('Error fetching image from OpenAI:'+ error, 'error');
   }
 }
 
@@ -116,7 +116,7 @@ function safeJsonParse(jsonString) {
   try {
     return JSON.parse(jsonString);
   } catch (error) {
-    console.error('Error parsing JSON:', error);
+    logger.log('Error parsing JSON string:'+ error, 'error');
     return null; // Return null or handle the error in an appropriate way
   }
 }

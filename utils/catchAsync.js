@@ -8,13 +8,13 @@
     try {
       const result = await asyncFn(req);
       timeTaken =  parseHrtimeToSeconds(process.hrtime(StartTime))
-      logger.log(timeTaken, req.url, 'Success', result)
+      logger.log(timeTaken + req.url + 'Success', result)
       return resSuccess({
         data: result,res
       });
     } catch (err) {
       timeTaken =  parseHrtimeToSeconds(process.hrtime(StartTime))
-      logger.log(timeTaken, req.url, err.stack.split('\n')[1], err.message)
+      logger.log(timeTaken + req.url+  err.stack.split('\n')[1] +  err.message, 'error')
       return resError({err,res,req, stackTrace : err.stack.split('\n')[1],
         timeTaken: parseHrtimeToSeconds(process.hrtime(StartTime)),
         route: req.url,
@@ -46,6 +46,7 @@ const resError = (resErrorBody) => {
   if (typeof err == 'string') message = err;
   // restrict stackTrace with IP
   let response = { success: false, error: message, stackTrace: stackTrace };
+  // logger.log(errreq+ stackTrace, timeTaken, route,response,errorList[stackTrace]);
   // logError(err, req, stackTrace, timeTaken, route,response,errorList[stackTrace]);
   return res.json(response);
 };

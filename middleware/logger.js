@@ -11,13 +11,13 @@ const getLogDirectory = () => {
 function log(logMessage, level = 'info') {
   
     const logFilePath = path.join(getLogDirectory(), 'app.log');
-    const formattedLog = `[${level}]-[${new Date().toISOString()}] ${logMessage}\n`;
+    const formattedLog = `[${level}]-[${new Date().toISOString()}] ${JSON.stringify(logMessage)}\n`;
 
     console.log(formattedLog)
   
     fs.appendFile(logFilePath, formattedLog, (err) => {
       if (err) {
-        console.error(`Error writing to log file: ${err}`);
+        logger.log(`Error writing to log file: ${err}`);
       }
     });
   }
